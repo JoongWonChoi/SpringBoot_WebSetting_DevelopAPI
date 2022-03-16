@@ -40,6 +40,18 @@ public class settingTest {
 		return service.dayloginNum(day);
 	}
 	
+	
+	
+	//부서별 월별 로그인 수
+	@ResponseBody
+	@RequestMapping("sqlmonthByOrganizationStatistic")
+	public Map<String, Object> monthByOrganization(String month, String organization){
+		return service.monthloginNumByOrganization(month, organization);
+	
+	}
+	
+	
+	
 	@RequestMapping("/test") 
 	public ModelAndView test() throws Exception{
 		System.out.println("test");

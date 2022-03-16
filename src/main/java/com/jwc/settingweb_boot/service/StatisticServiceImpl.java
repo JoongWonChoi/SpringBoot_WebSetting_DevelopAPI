@@ -59,6 +59,25 @@ public class StatisticServiceImpl implements StatisticService{
 		}
 		return result;
 	}
+	
+	
+	@Override
+	public HashMap<String, Object> monthloginNumByOrganization(String month, String organization){
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = uMapper.selectMonthLoginByOrganization(month, organization);
+			result.put("month", month);
+			result.put("organization", organization);
+			result.put("is_success", true);
+		}
+		catch(Exception e) {
+			result.put("totCnt", -999);
+			result.put("month", month);
+			result.put("organization", organization);
+			result.put("is_success", false);
+		}
+		return result;
+	}
 
 
 }

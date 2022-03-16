@@ -12,5 +12,6 @@ public interface StatisticMapper {
 	//평균 하루 로그인 수
 	//휴일을 제외한 로그인 수
 	//부서별 월별 로그인 수
+	public HashMap<String, Object> selectMonthLoginByOrganization(String month, String organization);
 
 }

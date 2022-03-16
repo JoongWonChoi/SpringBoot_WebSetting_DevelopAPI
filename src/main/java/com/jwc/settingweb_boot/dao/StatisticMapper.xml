@@ -29,4 +29,15 @@
 		<!-- sql left(문자열, 길이)문법 : 왼쪽으로부터 원하는 길이만큼 자르기 // right()은 방향만 다르고 기능은 같음!-->
 		<!-- sql substring(문자열, 시작자리번호, 자를 문자수) : 원하는 위치부터 원하는 길이만큼 slicing-->
 	</select>
+	
+	
+	
+	<select id="selectMonthLoginByOrganization" parameterType="string" resultType="hashmap">
+		select count(*) as totalCnt
+		from statistc.requestinfo ri
+		group by ri.organization
+		having substring(ri.createdate,3,2) = #{month} and ri.organization = #{organization};
+		<!-- sql left(문자열, 길이)문법 : 왼쪽으로부터 원하는 길이만큼 자르기 // right()은 방향만 다르고 기능은 같음!-->
+		<!-- sql substring(문자열, 시작자리번호, 자를 문자수) : 원하는 위치부터 원하는 길이만큼 slicing-->
+	</select>
 </mapper>
