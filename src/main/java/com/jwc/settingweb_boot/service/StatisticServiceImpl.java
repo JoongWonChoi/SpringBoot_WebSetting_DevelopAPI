@@ -64,13 +64,20 @@ public class StatisticServiceImpl implements StatisticService{
 	@Override
 	public HashMap<String, Object> monthloginNumByOrganization(String month, String organization){
 		HashMap<String, Object> result = new HashMap<String, Object>();
+		System.out.println("connect to service");
 		try {
-			result = uMapper.selectMonthLoginByOrganization(month, organization);
+			System.out.println("1");
+			result = uMapper.selectMonthLoginByOrganization(month, organization); //여기서 문제 발생!
+			//아마 mapper에서 sql오류가 있지 않을까 예상
+			System.out.println("2");
 			result.put("month", month);
+			System.out.println("3");
 			result.put("organization", organization);
+			System.out.println("4");
 			result.put("is_success", true);
 		}
 		catch(Exception e) {
+			System.out.println("fail");
 			result.put("totCnt", -999);
 			result.put("month", month);
 			result.put("organization", organization);

@@ -46,6 +46,7 @@ public class settingTest {
 	@ResponseBody
 	@RequestMapping("sqlmonthByOrganizationStatistic")
 	public Map<String, Object> monthByOrganization(String month, String organization){
+		System.out.println("month : "+month+"org : "+organization);
 		return service.monthloginNumByOrganization(month, organization);
 	
 	}
