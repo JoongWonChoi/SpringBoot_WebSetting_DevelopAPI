@@ -18,7 +18,7 @@ public class settingTest {
 	
 	@Autowired
 	private StatisticService service;
-	
+	//연도별 접속자 수
 	@ResponseBody //return 할 view 없이, 해당 메서드에서 return 해주는 값을 body로 삼아 바로 client에 노출
 	@RequestMapping("/sqlyearStatistic")
 	public Map<String, Object> sqlTest(String year) throws Exception{
@@ -26,6 +26,19 @@ public class settingTest {
 		return service.yearloginNum(year);
 	}
 	
+	//월별 접속자 수
+	@ResponseBody
+	@RequestMapping("/sqlmonthStatistic")
+	public Map<String,Object> monthLogin(String month){
+		return service.monthloginNum(month);
+	}
+	
+	//일자별 접속자 수
+	@ResponseBody
+	@RequestMapping("/sqldayStatistic")
+	public Map<String,Object> dayLogin(String day){
+		return service.dayloginNum(day);
+	}
 	
 	@RequestMapping("/test") 
 	public ModelAndView test() throws Exception{

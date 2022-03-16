@@ -28,11 +28,37 @@ public class StatisticServiceImpl implements StatisticService{
 			retVal.put("is_success",false);	
 		}
 		return retVal;
-		
-	
 	}
-	
-	
-	
+	@Override
+	public HashMap<String, Object> monthloginNum(String month){
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = uMapper.selectMonthLogin(month);
+			result.put("month", month);
+			result.put("is_success", true);
+		}
+		catch(Exception e) {
+			result.put("totCnt", -999);
+			result.put("month", month);
+			result.put("is_success", false);
+		}
+		return result;
+	}
+	@Override
+	public HashMap<String, Object> dayloginNum(String day){
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		try {
+			result = uMapper.selectDayLogin(day);
+			result.put("day", day);
+			result.put("is_success", true);
+		}
+		catch(Exception e) {
+			result.put("totCnt", -999);
+			result.put("day", day);
+			result.put("is_success", false);
+		}
+		return result;
+	}
+
 
 }
