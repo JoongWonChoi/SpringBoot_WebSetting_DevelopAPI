@@ -29,8 +29,8 @@ public class settingTest {
 	//월별 접속자 수
 	@ResponseBody
 	@RequestMapping("/sqlmonthStatistic")
-	public Map<String,Object> monthLogin(String month){
-		return service.monthloginNum(month);
+	public Map<String,Object> monthLogin(String year){ //요청된 year의 모든 월 별 접속자 수를 확인
+		return service.monthloginNum(year);
 	}
 	
 	//일자별 접속자 수
@@ -46,7 +46,7 @@ public class settingTest {
 	@ResponseBody
 	@RequestMapping("sqlmonthByOrganizationStatistic")
 	public Map<String, Object> monthByOrganization(String month, String organization){
-		System.out.println("month : "+month+"org : "+organization);
+		System.out.println("month : "+month+"org : "+organization); //'&'으로 연결된 여러개의 query string 인자가 모두 잘 전달 됨.
 		return service.monthloginNumByOrganization(month, organization);
 	
 	}

@@ -1,5 +1,6 @@
 package com.jwc.settingweb_boot.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,22 @@ public class StatisticServiceImpl implements StatisticService{
 		return retVal;
 	}
 	@Override
-	public HashMap<String, Object> monthloginNum(String month){
+	public HashMap<String, Object> monthloginNum(String year){
 		HashMap<String, Object> result = new HashMap<String, Object>();
+		
+		String month[] = {"01","02","03","04","05","06","07","08","09","10","11","12"};
+		ArrayList temp = new ArrayList();
 		try {
-			result = uMapper.selectMonthLogin(month);
-			result.put("month", month);
+			for(int i=0; i<12 ; i++) { //주어진 파라미터 년도의 달 별 접속자수를 위한 반복문
+				//temp = uMapper.selectMonthLogin(year, month[i]);
+				//result.put(month[i], uMapper.selectMonthLogin(year, month[i]));
+				temp.add(uMapper.selectMonthLogin(year, month[i]));
+				System.out.println(temp.get(i));
+				//System.out.println(month[i]+" | "+temp.get(month[i]));
+			}
+			//result.put("month", month);
+			result.put("year", year);
+			result.put("cntByMonth", temp);
 			result.put("is_success", true);
 		}
 		catch(Exception e) {
