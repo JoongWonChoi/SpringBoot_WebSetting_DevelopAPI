@@ -8,7 +8,7 @@ public interface StatisticService {
 	//월별 로그인 수
 	public HashMap<String, Object> monthloginNum(String year);
 	//일자별 접속 수
-	public HashMap<String, Object> dayloginNum(String day);
+	public HashMap<String, Object> dayloginNum(String yearMonth);
 	//평균 하루 로그인 수
 	
 	//휴일을 제외한 로그인 수

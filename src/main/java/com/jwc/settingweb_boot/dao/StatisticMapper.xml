@@ -23,9 +23,9 @@
 		<!-- sql substring(문자열, 시작자리번호, 자를 문자수) : 원하는 위치부터 원하는 길이만큼 slicing-->
 	</select>
 	<select id="selectDayLogin" parameterType="string" resultType="hashmap">
-		select count(*) as totalCnt
+		select count(*) as #{day}
 		from statistc.requestinfo ri
-		where substring(ri.createDate, 5, 2) = #{day};
+		where left(ri.createDate, 4) = #{yearMonth} and subString(ri.createDate,5,2)=#{day};
 		<!-- sql left(문자열, 길이)문법 : 왼쪽으로부터 원하는 길이만큼 자르기 // right()은 방향만 다르고 기능은 같음!-->
 		<!-- sql substring(문자열, 시작자리번호, 자를 문자수) : 원하는 위치부터 원하는 길이만큼 slicing-->
 	</select>

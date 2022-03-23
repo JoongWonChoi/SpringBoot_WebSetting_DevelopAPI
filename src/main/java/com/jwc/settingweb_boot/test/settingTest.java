@@ -36,8 +36,8 @@ public class settingTest {
 	//일자별 접속자 수
 	@ResponseBody
 	@RequestMapping("/sqldayStatistic")
-	public Map<String,Object> dayLogin(String day){
-		return service.dayloginNum(day);
+	public Map<String,Object> dayLogin(String yearMonth){
+		return service.dayloginNum(yearMonth);
 	}
 	
 	

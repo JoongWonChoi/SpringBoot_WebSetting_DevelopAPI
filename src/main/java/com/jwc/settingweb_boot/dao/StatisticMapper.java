@@ -8,7 +8,7 @@ public interface StatisticMapper {
 	//월별 로그인 수
 	public HashMap<String, Object> selectMonthLogin(String year, String month);
 	//일자별 접속 수
-	public HashMap<String, Object> selectDayLogin(String day);
+	public HashMap<String, Object> selectDayLogin(String yearMonth, String day);
 	//평균 하루 로그인 수
 	//휴일을 제외한 로그인 수
 	//부서별 월별 로그인 수
